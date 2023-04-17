@@ -43,28 +43,43 @@ import './styles.css'
 
 
 // ********  BOOKS APP    ********
+const firstBook = {
+  author: 'Laura Dave',
+  title: 'The Last Thing He Told Me',
+  img: 'https://images-na.ssl-images-amazon.com/images/I/71LyuJP7yUL._AC_UL600_SR600,400_.jpg',
+};
+const secondBook = {
+  author: 'Robert Greene',
+  title: 'The 48 Laws of Power',
+  img: 'https://m.media-amazon.com/images/I/41KY-NORo9L._SX355_BO1,204,203,200_.jpg',
+};
 
 function BookList() {
   return (
-    <section className = 'booklist'>
-      <Book />
-      <Book />
-      <Book />
-      <Book />
+    <section className='booklist'>
+      <Book
+        author={firstBook.author}
+        title={firstBook.title}
+        img={firstBook.img}
+      />
+      <Book
+        author={secondBook.author}
+        title={secondBook.title}
+        img={secondBook.img}
+      />
     </section>
   );
 }
-const author = ' Robert Greene'
-const Book = () => {
-    const title =    'The 48 Laws of Power';
-    return (
-      <article className = 'book'>
-       <img src = 'https://m.media-amazon.com/images/I/41KY-NORo9L._SY291_BO1,204,203,200_QL40_FMwebp_.jpg' alt = "The 48 Laws of Power"/>
-     <h2>{title}</h2>
-     <h5>{author}</h5>
-      </article>
-    );
-  };
+const Book = (props) => {
+  console.log(props);
+  return (
+    <article className='book'>
+      <img src={props.img} alt={props.title} />
+      <h2>{props.title}</h2>
+      <h4>{props.author} </h4>
+    </article>
+  );
+};
   
    
   
